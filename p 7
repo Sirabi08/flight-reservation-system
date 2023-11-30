@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Booking Successful</title>
+    <style>
+        /* Basic styling for both pages */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #ebe1e1;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Styling for form elements */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ab4747;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #7d2d2d;
+}
+</style>
+<script>document.addEventListener("DOMContentLoaded", function () {
+    const confirmationSection = document.getElementById("booking-details");
+
+    // Get the query parameters from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Extract booking details from query parameters
+    const fullName = urlParams.get("fullName");
+    const email = urlParams.get("email");
+    const phone = urlParams.get("phone");
+
+    // Create HTML to display booking details
+    const bookingDetailsHTML = `
+        <h3>Booking Details</h3>
+        <p><strong>Full Name:</strong> ${fullName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone Number:</strong> ${phone}</p>
+    `;
+
+    // Populate the confirmation section with booking details
+    confirmationSection.innerHTML = bookingDetailsHTML;
+});
+</script>
+</head>
+<body style="background-image: url('https://i.pinimg.com/originals/d5/b5/8a/d5b58ab8bc4d7fa2c37634e722275577.jpg');"></body>
+    <header>
+        <h1>Booking Successful</h1>
+    </header>
+    <main>
+        <section id="confirmation">
+            <h2 style="color: #b00d0d;">Booking Confirmation</h2>
+            <p style="color: #9c4141;">Your flight booking has been confirmed.</p>
+            <!-- Display booking details here -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Flight Booking</p>
+    </footer>
+    <script src="success.js"></script>
+
+</body>
+</html>

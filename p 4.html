@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="D:\pro\p5.html">
+    <title>Flight Booking</title>
+    <style>
+    /* Basic styling for the flight booking website */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+</style>
+<script>
+    // JavaScript for handling flight search
+const flightSearchForm = document.getElementById("flight-search-form");
+const resultsSection = document.getElementById("results");
+
+flightSearchForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const departure = document.getElementById("departure").value;
+    const destination = document.getElementById("destination").value;
+    const date = document.getElementById("date").value;
+
+    // You would typically send this data to a server to fetch flight results.
+    // For simplicity, let's just display a sample result here.
+    const flightResult = `
+        <h2>Search Results</h2>
+        <p>Departure: ${departure}</p>
+        <p>Destination: ${destination}</p>
+        <p>Date: ${date}</p>
+        <p>Sample Flight: Flight 123, Price: $300</p>
+    `;
+
+    resultsSection.innerHTML = flightResult;
+});
+
+</script>
+</head>
+<body style="background-image: url('https://cdn.wallpapersafari.com/37/9/DTurLX.png');"></body>
+    <header>
+        <h1>Flight Booking</h1>
+    </header>
+    <main>
+        
+        
+        <section id="search">
+            <h2 style="color: #483333;">Search for Flights</h2>
+            <form id="flight-search-form" action="./p5.html" method="post">
+                <label style="color: #141212;"for="departure">Departure:</label>
+                <input type="text" id="departure" required>
+                <label style="color: #272222;" for="destination">Destination:</label>
+                <input type="text" id="destination" required>
+                <label style="color: #1c1717;"for="date">Date:</label>
+                <input type="date" id="date" required>
+                <a href="D:\pro\p5.html">
+                <button type="submit">Search</button>
+            </a>
+            </form>
+        </section>
+        <section id="results">
+            <!-- Flight search results will be displayed here -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Flight Booking</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Ticket Reservation Website</title>
+  <style>
+  body {
+    background-color: #000000;
+  }
+  
+  h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+  }
+  
+  nav a {
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: #000;
+  }
+  
+  nav a:hover {
+    color: #000;
+    background-color: #542f2f;
+  }
+  
+  section {
+    margin-top: 2em;
+  }
+  
+  section h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  
+  section p {
+    margin-top: 0.5em;
+  }
+  
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+</style>
+<script>
+
+function getFlights() {
+    // Get the user's search criteria from the form.
+    var origin = document.getElementById("origin").value;
+    var destination = document.getElementById("destination").value;
+    var departureDate = document.getElementById("departureDate").value;
+    var returnDate = document.getElementById("returnDate").value;
+  
+    // Make a request to the API to get the flights.
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/api/flights", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify({
+      origin: origin,
+      destination: destination,
+      departureDate: departureDate,
+      returnDate: returnDate
+    }));
+  
+    // Handle the response from the API.
+    xhr.onload = function() {
+      var flights = JSON.parse(xhr.responseText);
+  
+      // Display the flights in the table.
+      var table = document.getElementById("flights-table");
+      table.innerHTML = "";
+  
+      for (var i = 0; i < flights.length; i++) {
+        var flight = flights[i];
+  
+        var row = document.createElement("tr");
+        row.innerHTML = "<td>" + flight.id + "</td><td>" + flight.origin + "</td><td>" + flight.destination + "</td><td>" + flight.departureDate + "</td><td>" + flight.returnDate + "</td><td>" + flight.price + "</td>";
+        table.appendChild(row);
+      }
+    };
+  }
+  
+  // When the user clicks the "Search" button, call the getFlights() function.
+  document.getElementById("search-button").addEventListener("click", getFlights);
+  </script>
+</head>
+</head>
+<body  style="background-image: url('https://i.pinimg.com/originals/d5/b5/8a/d5b58ab8bc4d7fa2c37634e722275577.jpg');"></body>
+<header>
+  <header>
+    <h1>Flight Ticket Reservation Website</h1>
+    <nav>
+      <a href="D:\pro\home 1" style="color: #220c0c;">Home</a>
+      <a href="D:\pro\about us" style="color: #1c1414;">About Us</a>
+      <a href="D:\pro\home 1" style="color: #201111;">Services</a>
+      <a href="D:\pro\contact us" style="color: #c0bfcd;">Contact Us</a>
+  </nav>
+  
+  </header>
+  <main>
+    <section>
+      <h2 style="color: #483333;">Find the Best Flight Tickets</h2>
+      <p style="color: #552e2e;">We offer a wide variety of flights to choose from, so you can find the best price and schedule for your trip.</p>
+      <p style="color: #914d4d;">Our booking process is simple and easy to use, so you can book your flight in just a few minutes.</p>
+      <p style="color: #883838;">We also offer a variety of payment options, so you can choose the one that is most convenient for you.</p>
+  </section>
+  
+  <section>
+      <h2 style="color: #804c4c;">Book Your Flight Today</h2>
+      <p style="color: #6f3838;">Start your journey by browsing our selection of flights.</p>
+      <p style="color: #4c3838;">Once you have found the perfect flight, simply enter your personal information and payment details.</p>
+      <p style="color: #3f2f2f;">We will then confirm your booking and send you a confirmation email.</p>
+  </section>
+  
+  </main>
+  <footer>
+    <p>Copyright 2023 Flight Ticket Reservation Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>
